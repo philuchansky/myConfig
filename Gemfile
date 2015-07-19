@@ -1,8 +1,10 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "sinatra", "~>1.4.6"
-gem "sinatra-activerecord"
-gem "rake"
-gem "activerecord"
-gem "pg"
-gem "tux"
+gem 'sinatra', '~>1.4.6'
+gem 'sinatra-activerecord'
+gem 'sinatra-flash'
+gem 'sinatra-redirect-with-flash'
+gem 'rake'
+gem 'activerecord'
+gem 'pg'
+gem 'tux'
