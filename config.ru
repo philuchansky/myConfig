@@ -3,7 +3,7 @@ require 'bundler'
 Bundler.require
 
 # Models
-#require './models/model_name'
+require './models/post.rb'
 
 # Controllers
 require './app'
