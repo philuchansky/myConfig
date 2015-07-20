@@ -66,7 +66,7 @@
         <% if @post.category.length > 0 %>
             var selectedCat = "<%= @post.category %>";
             $("select option").filter(function() {
-                return $(this).text() == selectedCat;
+                return $(this).attr("value") == selectedCat;
             }).prop('selected', true);
         <% end %>
     });
