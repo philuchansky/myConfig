@@ -7,7 +7,7 @@
 			<ul>
 				<li>Description: <%= post.description %></li>
 				<% if post.homepage.length > 0 %><li>Homepage: <a href="<%= post.homepage %>" target="_blank"><%= post.homepage %></a></li><% end %>
-				<li><a href="#">Edit</a> | <a href="#">Delete</a></li>
+				<li><a href="/<%= post.id %>/edit">Edit</a> | <a href="#">Delete</a></li>
 			</ul>
 		</li>
     <% end %>

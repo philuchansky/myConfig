@@ -34,4 +34,13 @@ class MyConfig < Sinatra::Base
     erb :'post/edit'
   end
 
+  put '/:id/edit' do
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params[:post])
+      redirect '/'
+    else
+      'error'
+    end
+  end
+
 end
