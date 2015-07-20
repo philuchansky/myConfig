@@ -3,7 +3,7 @@
 
 <div style="margin-top:30px"></div>
 
-<% if @post.homepage %><a class="btn btn-info" href="<%= @post.homepage %>" target="_blank">Docs</a> <% end %><a class="btn btn-primary" href="/<%= @post.id %>/edit">Edit</a> <a class="btn btn-danger" href="/<%= @post.id %>/delete">Delete</a> <a class="btn btn-default" href="/">Back</a>
+<% if @post.homepage %><a class="btn btn-sm btn-info" href="<%= @post.homepage %>" target="_blank">Docs</a> <% end %><a class="btn btn-sm btn-primary" href="/<%= @post.id %>/edit">Edit</a> <a class="btn btn-sm btn-danger" href="/<%= @post.id %>/delete">Delete</a> <a class="btn btn-sm btn-default" href="/">Back</a>
 
 <% if @post.samplecode.to_s.length > 0 %>
 	<hr>
