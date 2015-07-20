@@ -45,7 +45,7 @@ class MyConfig < Sinatra::Base
   put '/:id/edit' do
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
-      redirect '/'
+      redirect "/#{params[:id]}"
     else
       'error'
     end
