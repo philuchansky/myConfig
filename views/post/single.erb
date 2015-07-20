@@ -1,4 +1,15 @@
 <% @page_title = @post.title %>
 
-<p><%= @post.description %></p>
+<div id="to-markdown"><%= @post.description %></div>
+
 <% if @post.homepage %><a href="<%= @post.homepage %>" target="_blank">Go To Project</a> | <% end %><a href="/<%= @post.id %>/edit">Edit</a> | <a href="/<%= @post.id %>/delete">Delete</a> | <a href="/">All Items</a>
+
+<script>
+	$(function(){
+		var converter = new showdown.Converter(),
+				markdown  = $('#to-markdown').html(),
+				html      = converter.makeHtml(markdown);
+		$('#to-markdown').html(html);
+	});
+
+</script>
