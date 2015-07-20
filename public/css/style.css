@@ -12,4 +12,11 @@
 .jumbotron p {
   font-size: 18px; }
 
+#edit-btns-top {
+  margin-top: 26px;
+  margin-bottom: 20px; }
+
+hr {
+  clear: both; }
+
 /*# sourceMappingURL=style.css.map */
