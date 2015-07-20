@@ -27,4 +27,11 @@ class MyConfig < Sinatra::Base
     end
   end
 
+  ############### EDIT POST ###############
+
+  get '/:id/edit' do
+    @post = Post.find(params[:id])
+    erb :'post/edit'
+  end
+
 end
