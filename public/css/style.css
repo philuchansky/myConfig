@@ -1,3 +1,15 @@
+.item-description {
+  white-space: pre-wrap; }
 
+.post-meta {
+  display: inline-block;
+  clear: both;
+  width: 100%; }
+
+.jumbotron {
+  padding: 20px 40px !important; }
+
+.jumbotron p {
+  font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */
