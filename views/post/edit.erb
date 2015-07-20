@@ -1,8 +1,5 @@
 <% # @page_title = "Edit #{@post.title}" %>
 <h1 class="pull-left">Edit: <%= @post.title %></h1>
-<div class="pull-right" id="edit-btns-top">
-    <button type="submit" class="btn btn-primary">Save</button> <a href="/" class="btn btn-default">Cancel</a>
-</div>
 <hr>
 <form class="form-horizontal" action="/<%= @post.id %>/edit" method="post">
     <input type="hidden" name="_method" value="put">
@@ -16,6 +13,7 @@
         <label for="selectCategory" class="col-sm-2 control-label">Type</label>
         <div class="col-sm-8">
             <select id="selectCategory" class="form-control" name="post[category]">
+                <option>Select A Category</option>
                 <option value="html">HTML</option>
                 <option value="css">CSS</option>
                 <option value="javascript">Javascript</option>
@@ -32,17 +30,18 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="textSampleCode" class="col-sm-2 control-label">Sample Code</label>
-        <div class="col-sm-8">
-            <textarea id="textSampleCode" class="form-control" name="post[samplecode]" rows="8"><%= @post.samplecode %></textarea>
-        </div>
-    </div>
-    <div class="form-group">
         <label for="inputHomepage" class="col-sm-2 control-label">Homepage</label>
         <div class="col-sm-8">
             <input id="inputHomepage" class="form-control" type="text" name="post[homepage]" placeholder="Homepage" value="<%= @post.homepage %>">
         </div>
     </div>
+    <div class="form-group">
+        <label for="textSampleCode" class="col-sm-2 control-label">Sample Code</label>
+        <div class="col-sm-8">
+            <textarea id="textSampleCode" class="form-control" name="post[samplecode]" rows="8"><%= @post.samplecode %></textarea>
+        </div>
+    </div>
+
     <hr>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
@@ -56,7 +55,7 @@
     $(function(){
         var simplemde = new SimpleMDE( {element: document.getElementById("textSampleCode")} );
         simplemde.render();
-        <% if @post.category.length > 0 %>
+        <% if @post.category %>
             var selectedCat = "<%= @post.category %>";
             $("select option").filter(function() {
                 return $(this).attr("value") == selectedCat;

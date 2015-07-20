@@ -1,27 +1,27 @@
 <% @page_title = "<i class='icon-#{@post.category}'> </i>#{@post.title}" %>
 <div id="description"><strong>Description:</strong> <%= @post.description %></div>
-<hr>
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h3 class="panel-title">Sample Code</h3>
+
+<div style="margin-top:30px"></div>
+
+<% if @post.homepage %><a class="btn btn-info" href="<%= @post.homepage %>" target="_blank">Docs</a> <% end %><a class="btn btn-primary" href="/<%= @post.id %>/edit">Edit</a> <a class="btn btn-danger" href="/<%= @post.id %>/delete">Delete</a> <a class="btn btn-default" href="/">Back</a>
+
+<% if @post.samplecode.to_s.length > 0 %>
+	<hr>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Sample Code</h3>
+		</div>
+		<div class="panel-body">
+		    <div id="markdownContainer"><%= @post.samplecode %></div>
+		</div>
 	</div>
-	<div class="panel-body">
-	    <div id="markdownContainer"><%= @post.samplecode %></div>
-	</div>
-	<div class="panel-footer">
-	    <% if @post.homepage %><a href="<%= @post.homepage %>" target="_blank">Go To Project</a> | <% end %><a href="/<%= @post.id %>/edit">Edit</a> | <a href="/<%= @post.id %>/delete">Delete</a> | <a href="/">All Items</a>
-	</div>
-</div>
-
-
-
-
-<script>
-	$(function(){
-		var $markdownContainer = $('#markdownContainer');
-		var converter = new showdown.Converter(),
-			markdown  = $markdownContainer.html(),
-			html      = converter.makeHtml(markdown);
-		$markdownContainer.html(html);
-	});
-</script>
+	<script>
+		$(function(){
+			var $markdownContainer = $('#markdownContainer');
+			var converter = new showdown.Converter(),
+				markdown  = $markdownContainer.html(),
+				html      = converter.makeHtml(markdown);
+			$markdownContainer.html(html);
+		});
+	</script>
+<% end %>

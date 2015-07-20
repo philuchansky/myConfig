@@ -1,16 +1,13 @@
-<% @page_title = 'myConfigs' %>
 <!-- Number of items: <%= @posts.length %> -->
 
  <% @posts.each do |post| %>
     <div class="jumbotron">
-        <h2><a href="/<%= post.id %>" title="<%= post.title %>"><%= post.title %></a></h2>
-	    <hr>
+        <h2><a href="/<%= post.id %>" title="<%= post.title %>"><i class="icon-<%= post.category %>"></i> <%= post.title %></a></h2>
         <p class="item-description"><%= post.description %></p>
 	    <hr>
 	    <div class="post-meta">
 	        <div class="pull-left">
-	            <% if post.homepage.length > 0 %><a class="btn btn-default btn-sm" href="<%= post.homepage %>" target="_blank">Docs</a><% end %>
-	            <a class="btn btn-default btn-sm" href="/<%= post.id %>" title="<%= post.title %>" role="button">Learn more</a>
+	            <% if post.homepage.length > 0 %><a class="btn btn-info btn-sm" href="<%= post.homepage %>" target="_blank">Docs</a><% end %>
 	        </div>
 	        <div class="pull-right">
 	            <a class="btn btn-primary btn-sm" href="/<%= post.id %>/edit">Edit</a>
