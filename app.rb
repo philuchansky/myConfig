@@ -9,7 +9,7 @@ class MyConfig < Sinatra::Base
   ############### POST INDEX ###############
 
   get '/' do
-    @posts = Post.all
+    @posts = Post.all.order(id: :desc)
     erb :'post/index'
   end
 
@@ -50,5 +50,22 @@ class MyConfig < Sinatra::Base
       'error'
     end
   end
+
+  ############### DELETE POST ###############
+
+  get '/:id/delete' do
+    @post = Post.find(params[:id])
+    erb :'/post/delete'
+  end
+
+  get '/:id/delete/confirm' do
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect '/'
+    else
+      "Cannot Delete This Post!"
+    end
+  end
+
 
 end
