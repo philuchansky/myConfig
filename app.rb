@@ -14,6 +14,7 @@ class MyConfig < Sinatra::Base
   end
 
   ############### NEW POST ###############
+
   get '/new' do
     erb :'post/new'
   end
@@ -25,6 +26,13 @@ class MyConfig < Sinatra::Base
     else
       redirect '/new', error: 'Please add a title'
     end
+  end
+
+  ############### SINGLE POST ###############
+
+  get '/:id' do
+    @post = Post.find(params[:id])
+    erb :'/post/single'
   end
 
   ############### EDIT POST ###############
