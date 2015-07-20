@@ -1,18 +1,24 @@
 <% @page_title = 'myConfigs' %>
-<h4>Number of items: <%= @posts.length %></h4>
-<ul>
-    <% @posts.each do |post| %>
-		<li>
-		    <a href="/<%= post.id %>" title="<%= post.title %>">ID<%= post.id %>: <%= post.title %></a>
-			<ul>
-				<li>Description: <%= post.description %></li>
-				<% if post.homepage.length > 0 %><li>Homepage: <a href="<%= post.homepage %>" target="_blank"><%= post.homepage %></a></li><% end %>
-				<li><a href="/<%= post.id %>/edit">Edit</a> | <a href="/<%= post.id %>/delete">Delete</a></li>
-			</ul>
-		</li>
-    <% end %>
-</ul>
+<!-- Number of items: <%= @posts.length %> -->
 
+ <% @posts.each do |post| %>
+    <div class="jumbotron">
+        <h2><a href="/<%= post.id %>" title="<%= post.title %>"><%= post.title %></a></h2>
+	    <hr>
+        <p class="item-description"><%= post.description %></p>
+	    <hr>
+	    <div class="post-meta">
+	        <div class="pull-left">
+	            <% if post.homepage.length > 0 %><a class="btn btn-default btn-sm" href="<%= post.homepage %>" target="_blank">Docs</a><% end %>
+	            <a class="btn btn-default btn-sm" href="/<%= post.id %>" title="<%= post.title %>" role="button">Learn more</a>
+	        </div>
+	        <div class="pull-right">
+	            <a class="btn btn-primary btn-sm" href="/<%= post.id %>/edit">Edit</a>
+	            <a class="btn btn-danger btn-sm" href="/<%= post.id %>/delete">Delete</a>
+	        </div>
+	    </div>
 
+    </div>
+<% end %>
 
-<a href="/new">Add Item</a>
+<a class="btn btn-lg btn-primary pull-right" href="/new">Add Item</a>
